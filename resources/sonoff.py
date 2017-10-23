@@ -39,8 +39,7 @@ class Sonoff_Switch(object):
             for r in response:
                 if ' = ' in r:
                     key, val = r.split(' = ')
-                    if key == 'RESULT':
-                        return json.loads(val, encoding=req.encoding)['POWER']
+                    if key == 'RESULT': return json.loads(val, encoding=req.encoding)['POWER']
         except requests.ConnectionError:
             return u'UNREACHABLE'
         except requests.HTTPError:
