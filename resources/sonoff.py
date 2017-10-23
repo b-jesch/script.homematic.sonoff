@@ -14,16 +14,7 @@ class Sonoff_Switch(object):
     OFF = {'cmnd': 'Power Off'}
 
 
-    class SonoffInvalidRequest(Exception):
-        pass
-
-
-    class SonoffConnectionError(Exception):
-        pass
-
-
     @classmethod
-
     def select_ip(cls, device):
         return unicode(re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0])
 
