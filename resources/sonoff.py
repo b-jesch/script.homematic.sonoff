@@ -5,7 +5,7 @@ import requests
 import json
 import re
 
-class Sonoff(object):
+class Sonoff_Switch(object):
 
     SONOFF_CGI = '/cm'
     STATUS = {'cmnd': 'Power Status'}
@@ -25,13 +25,13 @@ class Sonoff(object):
     @classmethod
 
     def select_ip(cls, device):
-        return re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0]
+        return unicode(re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0])
 
     def get_devices(self, devices):
         '''
 
         :param devices: device list
-        :return: dict {device: status (ON|OFF|UNDEFINED}
+        :return: dict {device: status (ON|OFF|UNREACHABLE|UNDEFINED}
         '''
         dl = {}
         for d in devices:
@@ -50,16 +50,16 @@ class Sonoff(object):
                     key, val = r.split(' = ')
                     if key == 'RESULT':
                         return json.loads(val, encoding=req.encoding)['POWER']
-        except requests.ConnectionError, e:
-            raise self.SonoffConnectionError(e.message)
-        except requests.HTTPError, e:
-            raise self.SonoffInvalidRequest(e.message)
-        except Exception, e:
-            print e.message
-        return 'UNDEFINED'
+        except requests.ConnectionError:
+            return u'UNREACHABLE'
+        except requests.HTTPError:
+            return u'UNDEFINED'
+        except Exception:
+            pass
 
 if __name__ == '__main__':
-    device = 'http://192.168.178.11/cm'
-    sd = Sonoff()
-    print sd.get_devices(['192.168.178.11'])
+    device = '192.168.178.11'
+    devices = [device, '192.168.178.15', '192.168.178.255']
+    sd = Sonoff_Switch()
+    print sd.get_devices(devices)
     print sd.send_command(device, sd.TOGGLE)
