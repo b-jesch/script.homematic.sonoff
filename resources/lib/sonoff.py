@@ -4,6 +4,7 @@
 import requests
 import json
 import re
+import sys
 
 class Sonoff_Switch(object):
 
@@ -50,8 +51,5 @@ class Sonoff_Switch(object):
 
 
 if __name__ == '__main__':
-    device = '192.168.178.11'
-    devices = [device, '192.168.178.15', '192.168.178.255']
     sd = Sonoff_Switch()
-    print sd.get_devices(devices)
-    print sd.send_command(device, sd.TOGGLE)
+    print sd.send_command(sys.argv[1], sd.TOGGLE)

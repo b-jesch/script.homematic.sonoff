@@ -31,8 +31,8 @@ msgstr "Benutzung auf eigene Gefahr"
 
 
 msgctxt "#30000"
-msgid "Sonoff WLAN Switch"
-msgstr "Sonoff WLAN Switch"
+msgid "Sonoff WLAN Switcher"
+msgstr "Sonoff WLAN Switcher"
 
 #settings
 
@@ -72,7 +72,7 @@ msgctxt "#30010"
 msgid "enabled"
 msgstr "aktiv"
 
-msgctxt "#30010"
+msgctxt "#30011"
 msgid "switchable"
 msgstr "schaltbar"
 
@@ -83,3 +83,31 @@ msgstr "LAN IP-Adresse"
 msgctxt "#30013"
 msgid "Name or location of switch"
 msgstr "Name oder Ort des Schalters"
+
+msgctxt "#30014"
+msgid "%s couldn't switched"
+msgstr "%s kann nicht geschalten werden"
+
+msgctxt "#30015"
+msgid "No switchable or enabled devices found"
+msgstr "Keine schaltbaren oder freigegebenen Geräte gefunden"
+
+msgctxt "#30020"
+msgid "switch on"
+msgstr "einschalten"
+
+msgctxt "#30021"
+msgid "switch off"
+msgstr "ausschalten"
+
+msgctxt "#30022"
+msgid "Unreachable"
+msgstr "nicht erreichbar"
+
+msgctxt "#30023"
+msgid "Undefined"
+msgstr "undefiniert"
+
+msgctxt "#30024"
+msgid "Device shouldn't switched"
+msgstr "Gerät darf nicht geschalten werden"

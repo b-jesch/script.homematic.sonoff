@@ -31,7 +31,7 @@ msgstr ""
 
 
 msgctxt "#30000"
-msgid "Sonoff WLAN Switch"
+msgid "Sonoff WLAN Switcher"
 msgstr ""
 
 #settings
@@ -72,7 +72,7 @@ msgctxt "#30010"
 msgid "enabled"
 msgstr ""
 
-msgctxt "#30010"
+msgctxt "#30011"
 msgid "switchable"
 msgstr ""
 
@@ -82,4 +82,32 @@ msgstr ""
 
 msgctxt "#30013"
 msgid "Name or location of switch"
+msgstr ""
+
+msgctxt "#30014"
+msgid "%s couldn't switched"
+msgstr ""
+
+msgctxt "#30015"
+msgid "No switchable or enabled devices found"
+msgstr ""
+
+msgctxt "#30020"
+msgid "switch on"
+msgstr ""
+
+msgctxt "#30021"
+msgid "switch off"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Unreachable"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Undefined"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Device shouldn't switched"
 msgstr ""

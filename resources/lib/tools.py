@@ -1,9 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+'''
 import datetime
 import time
 from dateutil import parser
+'''
+
 import json
 import platform
 import subprocess
@@ -63,7 +66,7 @@ def getProcessPID(process):
             return PID[-1].split()[1]
         else: return False
     else:
-        writeLog(None, 'Running on %s, could not determine PID of %s' % (OS, process))
+        writeLog('Running on %s, could not determine PID of %s' % (OS, process))
         return False
 
 
@@ -78,13 +81,15 @@ def jsonrpc(query):
         response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
         if 'result' in response: return response['result']
     except TypeError, e:
-        writeLog(None, 'Error executing JSON RPC: %s' % (e.message), xbmc.LOGFATAL)
+        writeLog('Error executing JSON RPC: %s' % (e.message), xbmc.LOGFATAL)
     return None
 
+def strToBool(par):
+    return True if par.upper() == 'TRUE' else False
 
 def getAddonSetting(setting, sType=STRING, multiplicator=1):
     if sType == BOOL:
-        return  True if xbmcaddon.Addon().getSetting(setting).upper() == 'TRUE' else False
+        return strToBool(xbmcaddon.Addon().getSetting(setting))
     elif sType == NUM:
         try:
             return int(re.match('\d+', xbmcaddon.Addon().getSetting(setting)).group()) * multiplicator
@@ -95,7 +100,7 @@ def getAddonSetting(setting, sType=STRING, multiplicator=1):
 
         # send email to user to inform about a successful completition
 
-
+'''
 def strpTimeBug(datestring, formatstring):
     try:
         return datetime.datetime.strptime(datestring, formatstring)
@@ -103,3 +108,4 @@ def strpTimeBug(datestring, formatstring):
         return datetime.datetime(*(time.strptime(datestring, formatstring)[0:6]))
     except ImportError:
         return parser.parse(datestring)
+'''
