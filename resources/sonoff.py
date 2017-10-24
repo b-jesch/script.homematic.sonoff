@@ -7,6 +7,7 @@ import re
 
 class Sonoff_Switch(object):
 
+    TIMEOUT = 10
     SONOFF_CGI = '/cm'
     STATUS = {'cmnd': 'Power Status'}
     TOGGLE = {'cmnd': 'Power Toggle'}
@@ -33,7 +34,7 @@ class Sonoff_Switch(object):
     def send_command(self, device, command):
         device = self.select_ip(device)
         try:
-            req = requests.get('http://%s%s' % (device, self.SONOFF_CGI), command)
+            req = requests.get('http://%s%s' % (device, self.SONOFF_CGI), command, timeout=self.TIMEOUT)
             req.raise_for_status()
             response = req.text.splitlines()
             for r in response:
@@ -44,8 +45,9 @@ class Sonoff_Switch(object):
             return u'UNREACHABLE'
         except requests.HTTPError:
             return u'UNDEFINED'
-        except Exception:
-            pass
+        except Exception, e:
+            print e.message
+
 
 if __name__ == '__main__':
     device = '192.168.178.11'
