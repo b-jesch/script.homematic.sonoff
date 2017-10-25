@@ -3,8 +3,8 @@
 
 from resources.lib.tools import *
 from resources.lib.sonoff import Sonoff_Switch
-iconpath = os.path.join(xbmc.translatePath(PATH), 'resources', 'media')
 
+iconpath = os.path.join(xbmc.translatePath(PATH), 'resources', 'media')
 writeLog('Addon started')
 
 devices = []
