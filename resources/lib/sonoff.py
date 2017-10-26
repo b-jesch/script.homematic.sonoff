@@ -8,7 +8,7 @@ import sys
 
 class Sonoff_Switch(object):
 
-    TIMEOUT = 10
+    TIMEOUT = 3
     SONOFF_CGI = '/cm'
     STATUS = {'cmnd': 'Power Status'}
     TOGGLE = {'cmnd': 'Power Toggle'}
