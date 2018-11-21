@@ -18,7 +18,7 @@ for i in xrange(1, 9):
                                       'name': getAddonSetting('%s_name_%s' % (i, j))}
             devices.append(device_properties)
 
-print devices
+writeLog(str(devices))
 _devlist = []
 for device in devices:
     sd = Sonoff_Switch()
