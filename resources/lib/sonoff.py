@@ -10,6 +10,7 @@ class Sonoff_Switch(object):
 
     TIMEOUT = 3
     SONOFF_CGI = '/cm'
+    INFO = {'cmnd': 'Status'}
     STATUS = [{'cmnd': 'Power1'}, {'cmnd': 'Power2'}, {'cmnd': 'Power3'}, {'cmnd': 'Power4'}]
     TOGGLE = [{'cmnd': 'Power1 Toggle'}, {'cmnd': 'Power2 Toggle'}, {'cmnd': 'Power3 Toggle'}, {'cmnd': 'Power4 Toggle'}]
     ON = [{'cmnd': 'Power1 On'}, {'cmnd': 'Power2 On'}, {'cmnd': 'Power3 On'}, {'cmnd': 'Power4 On'}]
@@ -25,7 +26,8 @@ class Sonoff_Switch(object):
         try:
             req = requests.get('http://%s%s' % (device, self.SONOFF_CGI), command, timeout=timeout)
             req.raise_for_status()
-            return json.loads(req.text, encoding=req.encoding).get('POWER%s' % (channel), 'undefined')
+            response = json.loads(req.text, encoding=req.encoding)
+            return response.get('POWER%s' % (channel), response.get('Status', 'undefined'))
         except requests.ConnectionError:
             return u'UNREACHABLE'
         except requests.HTTPError:
@@ -36,4 +38,4 @@ class Sonoff_Switch(object):
 
 if __name__ == '__main__':
     sd = Sonoff_Switch()
-    print sd.send_command(sys.argv[1], sd.TOGGLE)
+    print sd.send_command(sys.argv[1], sd.INFO)

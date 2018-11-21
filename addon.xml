@@ -23,6 +23,6 @@
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>
     </assets>
-    <news>[B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
+    <news>[B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
   </extension>
 </addon>
