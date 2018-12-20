@@ -12,8 +12,8 @@
     <summary lang="de">Schalte Deine Geräte mit den Sonoff WLAN Modulen und Kodi</summary>
     <description lang="en">Switch with Kodi your illuminations or devices with the Sonoff WLAN modules. Be a couch potato and control up to eight devices via remote.</description>
     <description lang="de">Schalte mit Kodi Deine Beleuchtung oder Deine Geräte mit den Sonoff WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Fernbedienung.</description>
-    <disclaimer lang="en">Use at your own risk.</disclaimer>
-    <disclaimer lang="de">Benutzung auf eigene Gefahr.</disclaimer>
+    <disclaimer lang="en">Use at your own risk. It may be necessary to update the firmware of your Sonoff devices.</disclaimer>
+    <disclaimer lang="de">Benutzung auf eigene Gefahr. Es ist eventuell ein Firmware-Update Ihrer Sonoff-Geräte erforderlich.</disclaimer>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
     <forum></forum>
     <website></website>
@@ -23,6 +23,6 @@
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>
     </assets>
-    <news>[B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
+    <news>[B]0.0.7[/B][CR]- adjustments in Sonoff class module[CR][B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
   </extension>
 </addon>
