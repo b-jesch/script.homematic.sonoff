@@ -28,7 +28,7 @@ class Sonoff_Switch(object):
             req.raise_for_status()
             response = req.text.splitlines()
             result = json.loads(response[0], encoding=req.encoding)
-            return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED'))
+            return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED')).upper()
         except requests.ConnectionError as e:
             tools.writeLog('Connection Error: %s' % str(e.message))
             return u'UNREACHABLE'
