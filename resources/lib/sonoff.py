@@ -5,6 +5,7 @@ import requests
 import json
 import re
 import sys
+import tools
 
 class Sonoff_Switch(object):
 
@@ -28,14 +29,17 @@ class Sonoff_Switch(object):
             response = req.text.splitlines()
             result = json.loads(response[0], encoding=req.encoding)
             return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED'))
-        except requests.ConnectionError:
+        except requests.ConnectionError as e:
+            tools.writeLog('Connection Error: %s' % str(e.message))
             return u'UNREACHABLE'
-        except requests.HTTPError:
+        except requests.HTTPError as e:
+            tools.writeLog('HTTP Error: %s' % str(e.message))
             return u'UNDEFINED'
-        except Exception, e:
-            print e.message
+        except Exception as e:
+            tools.writeLog('unhandled Exception: %s' % str(e.message))
+            return u'UNDEFINED'
 
 
 if __name__ == '__main__':
     sd = Sonoff_Switch()
-    print sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[2])])
+    tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[2])])))

@@ -1,6 +1,6 @@
 <h1>Sonoff WLAN Multichannel Switcher</h1>
 
-Switch your illumination or devices at home with your Kodi remote. All you need is a Sonoff WLAN (multichannel) switch device from Itead in your home automation equipment flashed with TASMOTA. Interesting? Visit <b>itead.cc</b> to see more.
+Control your illumination or power switches at home with your Kodi remote. All you need is a Sonoff WLAN (multichannel) switch device from Itead in your home automation equipment flashed with TASMOTA. Interesting? Visit <b>itead.cc</b> to see more.
 
 It's required to flash or update your devices with TASMOTA firmware. You can control your devices with simple HTTP commands within a web browser after that. Additional you have the ability to setup your device(s) via webinterface and get much more control to your devices (MQTT, Emulation).
 
