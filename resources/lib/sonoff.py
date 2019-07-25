@@ -1,21 +1,36 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import requests
+import urllib
+import socket
 import json
 import re
 import sys
-import tools
+
+try:
+    import tools
+except ImportError as e:
+    print "module 'tools' not found, redefine..."
+
+    class Tools(object):
+
+        def __init__(self):
+            pass
+
+        def writeLog(self, message):
+            print(message)
+
+
+    tools = Tools()
 
 class Sonoff_Switch(object):
 
     TIMEOUT = 3
     SONOFF_CGI = '/cm'
-    STATUS = ['cmnd=Power Status', 'cmnd=Power2 Status', 'cmnd=Power3 Status', 'cmnd=Power4 Status']
-    TOGGLE = ['cmnd=Power Toggle', 'cmnd=Power2 Toggle', 'cmnd=Power3 Toggle', 'cmnd=Power4 Toggle']
-    ON = ['cmnd=Power On', 'cmnd=Power2 On', 'cmnd=Power3 On', 'cmnd=Power4 On']
-    OFF = ['cmnd=Power Off', 'cmnd=Power2 Off', 'cmnd=Power3 Off', 'cmnd=Power4 Off']
-
+    STATUS = [{'cmnd':'Power Status'}, {'cmnd':'Power2 Status'}, {'cmnd':'Power3 Status'}, {'cmnd':'Power4 Status'}]
+    TOGGLE = [{'cmnd':'Power Toggle'}, {'cmnd':'Power2 Toggle'}, {'cmnd':'Power3 Toggle'}, {'cmnd':'Power4 Toggle'}]
+    ON = [{'cmnd':'Power On'}, {'cmnd':'Power2 On'}, {'cmnd':'Power3 On'}, {'cmnd':'Power4 On'}]
+    OFF = [{'cmnd':'Power Off'}, {'cmnd':'Power2 Off'}, {'cmnd':'Power3 Off'}, {'cmnd':'Power4 Off'}]
 
     @classmethod
     def select_ip(cls, device):
@@ -24,22 +39,31 @@ class Sonoff_Switch(object):
     def send_command(self, device, command, channel='1', timeout=TIMEOUT):
         device = self.select_ip(device)
         try:
-            req = requests.get('http://%s%s' % (device, self.SONOFF_CGI), command, timeout=timeout)
-            req.raise_for_status()
+            socket.setdefaulttimeout(timeout)
+            req = urllib.urlopen('http://%s%s' % (device, self.SONOFF_CGI), urllib.urlencode(command)).read()
             response = req.text.splitlines()
             result = json.loads(response[0], encoding=req.encoding)
             return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED')).upper()
-        except requests.ConnectionError as e:
-            tools.writeLog('Connection Error: %s' % str(e.message))
-            return u'UNREACHABLE'
-        except requests.HTTPError as e:
-            tools.writeLog('HTTP Error: %s' % str(e.message))
-            return u'UNDEFINED'
+        except IOError as e:
+            tools.writeLog('Error: %s' % str(e))
         except Exception as e:
-            tools.writeLog('unhandled Exception: %s' % str(e.message))
-            return u'UNDEFINED'
+            tools.writeLog('Exception: %s' % str(e))
+
+        return u'UNREACHABLE'
 
 
 if __name__ == '__main__':
     sd = Sonoff_Switch()
-    tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[2])])))
+    try:
+        if sys.argv[2].upper() == 'STATUS':
+            tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[3]) - 1])))
+        elif sys.argv[2].upper() == 'TOGGLE':
+            tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[3]) - 1])))
+        elif sys.argv[2].upper == 'ON':
+            tools.writeLog(str(sd.send_command(sys.argv[1], sd.ON[int(sys.argv[3]) - 1])))
+        elif sys.argv[2].upper == 'OFF':
+            tools.writeLog(str(sd.send_command(sys.argv[1], sd.OFF[int(sys.argv[3]) - 1])))
+        else:
+            tools.writeLog('unknown command')
+    except IndexError:
+        tools.writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|TOGGLE|ON|OFF <channel (1-4)>"')
