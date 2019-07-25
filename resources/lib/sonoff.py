@@ -41,8 +41,8 @@ class Sonoff_Switch(object):
         try:
             socket.setdefaulttimeout(timeout)
             req = urllib.urlopen('http://%s%s' % (device, self.SONOFF_CGI), urllib.urlencode(command)).read()
-            response = req.text.splitlines()
-            result = json.loads(response[0], encoding=req.encoding)
+            response = req.splitlines()
+            result = json.loads(response[0])
             return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED')).upper()
         except IOError as e:
             tools.writeLog('Error: %s' % str(e))

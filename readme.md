@@ -18,4 +18,24 @@ It's required to flash or update your devices with TASMOTA firmware. You can con
         
 - toogle power:
 
-        http://<ip-of-your-device>/cm?cmnd=power<channel number>%20toggle                
+        http://<ip-of-your-device>/cm?cmnd=power<channel number>%20toggle
+
+...and more
+
+<h1>For Experts</h1>
+
+It's possible to use the sonoff.py class module separatly from this addon as a wrapper. If you want to call your switches from shell, just type:
+
+        ./sonoff.py <ip-of-your-device> toggle|on|off <channel (1-4)>
+     
+ eg:
+ 
+        ./sonoff.py 192.168.1.100 toggle 1
+ 
+Make shure the sonoff.py is executable. Copy the sonoff.py to a place of your needs. You also can use the class module directly in python scripts. Import the class module and use it as follows:
+    
+    from sonoff.py import *
+    Sonoff_Switch().send_command('192.168.1.100', Sonoff_Switch().TOGGLE[1]
+    
+where the 192.168.1.100 is the IP of your device and TOGGLE[1] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel (1-4). 
+    
