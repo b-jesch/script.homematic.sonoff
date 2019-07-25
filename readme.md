@@ -16,7 +16,7 @@ It's required to flash or update your devices with TASMOTA firmware. You can con
 
         http://<ip-of-your-device>/cm?cmnd=power<channel number>%20Off
         
-- toogle power:
+- toggle power:
 
         http://<ip-of-your-device>/cm?cmnd=power<channel number>%20toggle
 
