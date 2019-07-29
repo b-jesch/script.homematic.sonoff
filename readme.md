@@ -35,7 +35,7 @@ It's possible to use the sonoff.py class module separatly from this addon as a w
 Make shure the sonoff.py is executable. Copy the sonoff.py to a place of your needs. You also can use the class module directly in python scripts. Import the class module and use it as follows:
     
     from sonoff.py import *
-    Sonoff_Switch().send_command('192.168.1.100', Sonoff_Switch().TOGGLE[1]
+    Sonoff_Switch().send_command('192.168.1.100', Sonoff_Switch().TOGGLE[0]
     
-where the 192.168.1.100 is the IP of your device and TOGGLE[1] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel (1-4). 
+where the 192.168.1.100 is the IP of your device and TOGGLE[0] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel - 1 (0-3). 
     

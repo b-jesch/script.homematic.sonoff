@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from resources.lib.tools import *
-from resources.lib.sonoff import Sonoff_Switch
+from resources.lib.sonoff import Sonoff
 
 iconpath = os.path.join(PATH, 'resources', 'media')
 writeLog('Addon started')
@@ -21,11 +21,11 @@ for i in xrange(1, 9):
 writeLog(str(devices))
 _devlist = []
 for device in devices:
-    sd = Sonoff_Switch()
+    sd = Sonoff()
     if device['multichannel']:
-        device.update({'status': sd.send_command(device['ip'], sd.STATUS[device['channel']], channel=device['channel'] + 1, timeout=5)})
+        device.update({'status': sd.send(device['ip'], sd.STATUS[device['channel']], channel=device['channel'] + 1, timeout=5)})
     else:
-        device.update({'status': sd.send_command(device['ip'], sd.STATUS[device['channel']], timeout=5)})
+        device.update({'status': sd.send(device['ip'], sd.STATUS[device['channel']], timeout=5)})
 
     if device['status'] == 'ON':
         L2 = LS(30021) if device['switchable'] else LS(30024)
@@ -54,7 +54,7 @@ if len(_devlist) > 0:
     _idx = dialog.select(LS(30000), _devlist, useDetails=True)
     if _idx > -1:
         if strToBool(_devlist[_idx].getProperty('switchable')):
-            res = sd.send_command(_devlist[_idx].getProperty('ip'), sd.TOGGLE[int(_devlist[_idx].getProperty('channel'))])
+            res = sd.send(_devlist[_idx].getProperty('ip'), sd.TOGGLE[int(_devlist[_idx].getProperty('channel'))])
             writeLog('%s (%s) switched to %s' % (_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip'), res))
         else:
             writeLog('%s (%s) is not switchable' % (_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip')))

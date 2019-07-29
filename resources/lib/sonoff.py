@@ -23,7 +23,7 @@ except ImportError as e:
 
     tools = Tools()
 
-class Sonoff_Switch(object):
+class Sonoff(object):
 
     TIMEOUT = 3
     SONOFF_CGI = '/cm'
@@ -36,7 +36,7 @@ class Sonoff_Switch(object):
     def select_ip(cls, device):
         return unicode(re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0])
 
-    def send_command(self, device, command, channel='1', timeout=TIMEOUT):
+    def send(self, device, command, channel='1', timeout=TIMEOUT):
         device = self.select_ip(device)
         try:
             socket.setdefaulttimeout(timeout)
@@ -53,17 +53,17 @@ class Sonoff_Switch(object):
 
 
 if __name__ == '__main__':
-    sd = Sonoff_Switch()
+    sd = Sonoff()
     try:
         if sys.argv[2].upper() == 'STATUS':
-            tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[3]) - 1])))
+            tools.writeLog(str(sd.send(sys.argv[1], sd.STATUS[int(sys.argv[3])])))
         elif sys.argv[2].upper() == 'TOGGLE':
-            tools.writeLog(str(sd.send_command(sys.argv[1], sd.TOGGLE[int(sys.argv[3]) - 1])))
+            tools.writeLog(str(sd.send(sys.argv[1], sd.TOGGLE[int(sys.argv[3])])))
         elif sys.argv[2].upper == 'ON':
-            tools.writeLog(str(sd.send_command(sys.argv[1], sd.ON[int(sys.argv[3]) - 1])))
+            tools.writeLog(str(sd.send(sys.argv[1], sd.ON[int(sys.argv[3])])))
         elif sys.argv[2].upper == 'OFF':
-            tools.writeLog(str(sd.send_command(sys.argv[1], sd.OFF[int(sys.argv[3]) - 1])))
+            tools.writeLog(str(sd.send(sys.argv[1], sd.OFF[int(sys.argv[3])])))
         else:
             tools.writeLog('unknown command')
     except IndexError:
-        tools.writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|TOGGLE|ON|OFF <channel (1-4)>"')
+        tools.writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|TOGGLE|ON|OFF <channel (0-3)>"')
