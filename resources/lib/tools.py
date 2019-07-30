@@ -1,12 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-'''
-import datetime
-import time
-from dateutil import parser
-'''
-
 import json
 import platform
 import subprocess
@@ -16,6 +10,8 @@ import re
 import xbmc
 import xbmcgui
 import xbmcaddon
+
+from contextlib import contextmanager
 
 ADDON_NAME = xbmcaddon.Addon().getAddonInfo('name')
 PATH = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('path'))
@@ -98,14 +94,11 @@ def getAddonSetting(setting, sType=STRING, multiplicator=1):
     else:
         return xbmcaddon.Addon().getSetting(setting)
 
-        # send email to user to inform about a successful completition
 
-'''
-def strpTimeBug(datestring, formatstring):
+@contextmanager
+def busy_dialog():
+    xbmc.executebuiltin('ActivateWindow(busydialognocancel)')
     try:
-        return datetime.datetime.strptime(datestring, formatstring)
-    except TypeError:
-        return datetime.datetime(*(time.strptime(datestring, formatstring)[0:6]))
-    except ImportError:
-        return parser.parse(datestring)
-'''
+        yield
+    finally:
+        xbmc.executebuiltin('Dialog.Close(busydialognocancel)')

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.homematic.sonoff" name="Sonoff WLAN Switcher" version="0.0.10" provider-name="Birger Jesch">
+<addon id="script.homematic.sonoff" name="Sonoff WLAN Switcher" version="0.0.11" provider-name="Birger Jesch">
   <requires>
     <import addon="xbmc.python" version="2.25.0" />
     <import addon="xbmc.json" version="7.0.0" />
@@ -26,6 +26,6 @@ Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>
     </assets>
-    <news>[B]0.0.10[/B][CR]- changes in sonoff class module[CR][B]0.0.8[/B][CR]- smaller improvements[CR][B]0.0.7[/B][CR]- adjustments in Sonoff class module[CR][B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
+    <news>[B]0.0.11[/B][CR]- Busy dialog implemented[CR][B]0.0.10[/B][CR]- changes in sonoff class module[CR][B]0.0.8[/B][CR]- smaller improvements[CR][B]0.0.7[/B][CR]- adjustments in Sonoff class module[CR][B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
   </extension>
 </addon>
