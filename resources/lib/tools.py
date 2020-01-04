@@ -27,11 +27,11 @@ NUM = 2
 def writeLog(message, level=xbmc.LOGDEBUG):
     xbmc.log('[%s %s] %s' % (xbmcaddon.Addon().getAddonInfo('id'),
                              xbmcaddon.Addon().getAddonInfo('version'),
-                             message.encode('utf-8')), level)
+                             message), level)
 
 
 def notify(header, message, icon=xbmcgui.NOTIFICATION_INFO, dispTime=5000):
-    xbmcgui.Dialog().notification(header.encode('utf-8'), message.encode('utf-8'), icon=icon, time=dispTime)
+    xbmcgui.Dialog().notification(header, message, icon=icon, time=dispTime)
 
 
 def release():
@@ -53,7 +53,7 @@ def getProcessPID(process):
     if OS['platform'] == 'Linux':
         _syscmd = subprocess.Popen(['pidof', process], stdout=subprocess.PIPE)
         PID = _syscmd.stdout.read().strip()
-        return PID if PID > 0 else False
+        return PID if len(PID) > 0 else False
     elif OS['platform'] == 'Windows':
         _tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % os.path.basename(process)
         _syscmd = subprocess.Popen(_tlcall, shell=True, stdout=subprocess.PIPE)
@@ -67,7 +67,7 @@ def getProcessPID(process):
 
 
 def dialogOK(header, message):
-    xbmcgui.Dialog().ok(header.encode('utf-8'), message.encode('utf-8'))
+    xbmcgui.Dialog().ok(header, message)
 
 
 def jsonrpc(query):
@@ -76,8 +76,8 @@ def jsonrpc(query):
     try:
         response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
         if 'result' in response: return response['result']
-    except TypeError, e:
-        writeLog('Error executing JSON RPC: %s' % (e.message), xbmc.LOGFATAL)
+    except TypeError as e:
+        writeLog('Error executing JSON RPC: %s' % (e.args), xbmc.LOGFATAL)
     return None
 
 def strToBool(par):

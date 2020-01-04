@@ -8,9 +8,9 @@ iconpath = os.path.join(PATH, 'resources', 'media')
 writeLog('Addon started')
 
 devices = []
-for i in xrange(1, 9):
+for i in range(1, 9):
     if getAddonSetting('%s_enabled' % (i), sType=BOOL):
-        for j in xrange(0, getAddonSetting('%s_channels' % (i), sType=NUM) + 1):
+        for j in range(0, getAddonSetting('%s_channels' % (i), sType=NUM) + 1):
             device_properties = {'switchable': getAddonSetting('%s_switchable' % (i), sType=BOOL),
                                       'ip': getAddonSetting('%s_ip' % (i)),
                                       'channel': j,
@@ -18,7 +18,6 @@ for i in xrange(1, 9):
                                       'name': getAddonSetting('%s_name_%s' % (i, j))}
             devices.append(device_properties)
 
-writeLog(str(devices))
 _devlist = []
 
 with busy_dialog():
@@ -44,7 +43,8 @@ with busy_dialog():
             icon = os.path.join(iconpath, 'sonoff_undef.png')
             device.update({'switchable': False})
 
-        liz = xbmcgui.ListItem(label=device['name'], label2=L2, iconImage=icon)
+        liz = xbmcgui.ListItem(label=device['name'], label2=L2)
+        liz.setArt({'icon': icon})
         liz.setProperty('name', device['name'])
         liz.setProperty('ip', device['ip'])
         liz.setProperty('channel', str(device['channel']))

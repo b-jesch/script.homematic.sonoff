@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import urllib
-import socket
+import urllib3
 import json
 import re
 import sys
@@ -10,7 +9,7 @@ import sys
 try:
     import tools
 except ImportError as e:
-    print "module 'tools' not found, redefine..."
+    print("module 'tools' not found, redefine...")
 
     class Tools(object):
 
@@ -34,20 +33,19 @@ class Sonoff(object):
 
     @classmethod
     def select_ip(cls, device):
-        return unicode(re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0])
+        return re.findall(r'[0-9]+(?:\.[0-9]+){3}', device)[0]
 
     def send(self, device, command, channel='1', timeout=TIMEOUT):
         device = self.select_ip(device)
+        http = urllib3.PoolManager()
         try:
-            socket.setdefaulttimeout(timeout)
-            req = urllib.urlopen('http://%s%s' % (device, self.SONOFF_CGI), urllib.urlencode(command)).read()
-            response = req.splitlines()
-            result = json.loads(response[0])
+            req = http.request('GET', 'http://%s%s' % (device, self.SONOFF_CGI), fields=command, timeout=timeout)
+            result = json.loads(req.data.decode('utf-8'))
             return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED')).upper()
         except IOError as e:
-            tools.writeLog('Error: %s' % str(e))
+            tools.writeLog('Error: %s' % e.args)
         except Exception as e:
-            tools.writeLog('Exception: %s' % str(e))
+            tools.writeLog('Exception: %s' % e.args)
 
         return u'UNREACHABLE'
 
