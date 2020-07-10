@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 import json
 import platform
@@ -24,14 +23,14 @@ STRING = 0
 BOOL = 1
 NUM = 2
 
+
 def writeLog(message, level=xbmc.LOGDEBUG):
     xbmc.log('[%s %s] %s' % (xbmcaddon.Addon().getAddonInfo('id'),
                              xbmcaddon.Addon().getAddonInfo('version'),
-                             message.encode('utf-8')), level)
-
+                             message), level)
 
 def notify(header, message, icon=xbmcgui.NOTIFICATION_INFO, dispTime=5000):
-    xbmcgui.Dialog().notification(header.encode('utf-8'), message.encode('utf-8'), icon=icon, time=dispTime)
+    xbmcgui.Dialog().notification(header, message, icon=icon, time=dispTime)
 
 
 def release():
@@ -62,7 +61,7 @@ def getProcessPID(process):
             return PID[-1].split()[1]
         else: return False
     else:
-        writeLog('Running on %s, could not determine PID of %s' % (OS, process))
+        writeLog('Running on {}, could not determine PID of {}'.format(OS, process))
         return False
 
 
@@ -77,7 +76,7 @@ def jsonrpc(query):
         response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
         if 'result' in response: return response['result']
     except TypeError, e:
-        writeLog('Error executing JSON RPC: %s' % (e.message), xbmc.LOGFATAL)
+        writeLog('Error executing JSON RPC: {}'.format(e.message), xbmc.LOGFATAL)
     return None
 
 def strToBool(par):

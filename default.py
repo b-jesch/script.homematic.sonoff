@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 from resources.lib.tools import *
 from resources.lib.sonoff import Sonoff
@@ -18,7 +17,6 @@ for i in xrange(1, 9):
                                       'name': getAddonSetting('%s_name_%s' % (i, j))}
             devices.append(device_properties)
 
-writeLog(str(devices))
 _devlist = []
 
 with busy_dialog():
@@ -57,9 +55,9 @@ if len(_devlist) > 0:
     if _idx > -1:
         if strToBool(_devlist[_idx].getProperty('switchable')):
             res = sd.send(_devlist[_idx].getProperty('ip'), sd.TOGGLE[int(_devlist[_idx].getProperty('channel'))])
-            writeLog('%s (%s) switched to %s' % (_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip'), res))
+            writeLog('{} ({}) switched to {}'.format(_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip'), res))
         else:
-            writeLog('%s (%s) is not switchable' % (_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip')))
+            writeLog('{} ({}) is not switchable'.format(_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip')))
             notify(LS(30000), LS(30014) % (_devlist[_idx].getProperty('name')), icon=xbmcgui.NOTIFICATION_WARNING)
 else:
     writeLog('no switchable devices found')
