@@ -49,10 +49,12 @@ class Sonoff(object):
                                          result.get('Status', u'UNDEFINED')))
         except IOError as e:
             tools.writeLog('Error: %s' % str(e))
+        except ValueError as e:
+            tools.writeLog('JSON Response expected, got others: %s' % str(e))
         except Exception as e:
             tools.writeLog('Exception: %s' % str(e))
 
-        return u'UNREACHABLE'
+        return u'UNDEFINED'
 
 
 if __name__ == '__main__':

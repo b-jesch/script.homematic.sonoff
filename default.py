@@ -2,6 +2,7 @@
 
 import sys
 import socket
+import io
 from resources.lib.tools import *
 from resources.lib.sonoff import Sonoff
 from resources.lib.scanner import Scanner
@@ -11,7 +12,7 @@ scannerfile = os.path.join(PROFILE, 'scanner.json')
 
 writeLog('Addon started')
 
-devices = []
+devices = list()
 for i in xrange(1, 9):
     if getAddonSetting('%s_enabled' % (i), sType=BOOL):
         for j in xrange(0, getAddonSetting('%s_channels' % (i), sType=NUM) + 1):
@@ -50,28 +51,50 @@ if __name__ == '__main__':
             stop = getAddonSetting('range_stop', sType=NUM)
             ports = ' '.join(getAddonSetting('portlist').replace(',', ' ').split()).split()
 
+            sd = Sonoff()
             scanner = Scanner()
+
             scanner.scan(mask, start, stop, ports)
             if len(scanner.net_devices) > 0:
-                with open(scannerfile, 'w') as sf:
-                    json.dump(scanner.net_devices, sf, ensure_ascii=False, indent=4)
+                for net_device in scanner.net_devices:
+                    props = sd.send(scanner.net_devices[net_device]['ip'], sd.NAME[0])
+                    writeLog('Device Properties: {}'.format(str(props)))
+                    if props != "UNDEFINED":
+                        scanner.net_devices[net_device].update({'name': props.get('DeviceName', 'unknown')})
+                        scanner.net_devices[net_device].update({'channels': props.get('FriendlyName', [])})
+
+                with io.open(scannerfile, 'w', encoding='utf-8') as sf:
+                    content = json.dumps(scanner.net_devices, ensure_ascii=False, indent=4)
+                    sf.write(unicode(content))
+
+                notify(LS(30000), LS(30027))
 
         elif sys.argv[1].upper() == 'APPLY':
             if os.path.isfile(scannerfile):
-                with open(scannerfile, 'r') as sf:
+                with io.open(scannerfile, 'r', encoding='utf-8') as sf:
                     net_devices = json.load(sf)
                     writeLog('Load {} entries from net device list'.format(len(net_devices)))
                 menu = list()
 
                 for net_device in net_devices:
-                    liz = xbmcgui.ListItem(label=net_device, label2=net_devices[net_device])
-                    liz.setArt({'icon': os.path.join(iconpath, 'sonoff_icon.png')})
+                    liz = xbmcgui.ListItem(label=net_device, label2=net_devices[net_device]['ip'])
+                    liz.setArt({'icon': os.path.join(iconpath, 'network.png')})
+                    liz.setProperty('name', net_devices[net_device].get('name', LS(30017)))
+                    liz.setProperty('channels', ', '.join(net_devices[net_device].get('channels', [LS(30017)])))
+                    # liz.setProperty('channels', net_devices[net_device].get('channels', []))
                     menu.append(liz)
 
                 entry = xbmcgui.Dialog().select(LS(30037), menu, useDetails=True)
                 if entry < 0:
                     exit()
                 setAddonSetting('{}_ip'.format(sys.argv[2]), menu[entry].getLabel2())
+                setAddonSetting('{}_channels'.format(sys.argv[2]), len(menu[entry].getProperty('channels').split(',')) - 1)
+                # setAddonSetting('{}_channels'.format(sys.argv[2]), len(menu[entry].getProperty('channels')))
+
+                i = 0
+                for channel in menu[entry].getProperty('channels').split(','):
+                    setAddonSetting('{}_name_{}'.format(sys.argv[2], i), channel)
+                    i += 1
             else:
                 writeLog('No device list found...')
 
@@ -91,7 +114,7 @@ if __name__ == '__main__':
                 elif device['status'] == 'OFF':
                     L2 = LS(30020) if device['switchable'] else LS(30024)
                     icon = os.path.join(iconpath, 'sonoff_off.png')
-                elif device['status'] == 'UNREACHABLE':
+                elif device['status'] == 'UNDEFINED':
                     L2 = LS(30022)
                     icon = os.path.join(iconpath, 'sonoff_undef.png')
                     device.update({'switchable': False})
@@ -100,7 +123,8 @@ if __name__ == '__main__':
                     icon = os.path.join(iconpath, 'sonoff_undef.png')
                     device.update({'switchable': False})
 
-                liz = xbmcgui.ListItem(label=device['name'], label2=L2, iconImage=icon)
+                liz = xbmcgui.ListItem(label=device['name'], label2=L2)
+                liz.setArt({'icon': icon})
                 liz.setProperty('name', device['name'])
                 liz.setProperty('ip', device['ip'])
                 liz.setProperty('channel', str(device['channel']))

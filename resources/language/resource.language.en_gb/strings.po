@@ -99,6 +99,10 @@ msgctxt "#30016"
 msgid "Number of channels"
 msgstr ""
 
+msgctxt "#30017"
+msgid "unknown"
+msgstr ""
+
 msgctxt "#30020"
 msgid "switch on"
 msgstr ""

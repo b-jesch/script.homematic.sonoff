@@ -100,6 +100,10 @@ msgctxt "#30016"
 msgid "Number of channels"
 msgstr "Anzahl Kanäle"
 
+msgctxt "#30017"
+msgid "unknown"
+msgstr "unbekannt"
+
 msgctxt "#30020"
 msgid "switch on"
 msgstr "einschalten"
@@ -126,7 +130,7 @@ msgstr "Bitte im Setup eine korrekte und gültige Subnetz-Adresse angeben, z.B. 
 
 msgctxt "#30026"
 msgid "Could not determine a valid Host IP in auto discovery mode. Please turn off auto discovery and enter an IP Prefix of your LAN"
-msgstr "Im Auto Discovery Mode kann keine gültige Host-IP ermittelt werden. Bitte den Auto Dicover Mode abschalten und einen IP Präfix des LANs eingeben"
+msgstr "Im Auto Discovery Mode kann keine gültige Host-IP ermittelt werden. Bitte den Auto Discover Mode abschalten und einen IP Präfix des LANs verwenden"
 
 msgctxt "#30027"
 msgid "Scan Results has been saved"
@@ -174,7 +178,7 @@ msgstr "Initialisiere Netzwerk-Scanner"
 
 msgctxt "#30041"
 msgid "Scanning Port {} in Address Range from {}.{} to {}.{}. This may take some Time depending from IP Range and the amount of scanned Ports.[CR][CR]"
-msgstr "Scanne Port {} im Bereich von {}.{} bis {}.{}. Je nach IP-Bereich und der zu scannenden Ports kann das einige Zeit in Anspruch nehmen.[CR][CR]"
+msgstr "Scanne Port {} im Bereich von {}.{} bis {}.{}. Das kann je nach IP-Bereich und Anzahl der zu scannenden Ports einige Zeit in Anspruch nehmen.[CR][CR]"
 
 msgctxt "#30042"
 msgid "Found Device at: {}.{} on Port {}: {}"

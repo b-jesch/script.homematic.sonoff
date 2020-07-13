@@ -34,7 +34,7 @@ class Scanner(object):
                     _dev = socket.gethostbyaddr('{}.{}'.format(segment, i))[0]
                     msg_2 = LS(30042).format(segment, i, port, _dev).encode('utf-8')
                     writeLog("Device found at: {}.{}:{} {}".format(segment, i, port, _dev))
-                    self.net_devices.update({_dev: '{}.{}'.format(segment, i)})
+                    self.net_devices.update({_dev: {'ip': '{}.{}'.format(segment, i)}})
                 pb.update(int(progress), '{}{}'.format(msg_1, msg_2))
                 if pb.iscanceled():
                     pb.close()
@@ -44,4 +44,4 @@ class Scanner(object):
                     return
         pb.close()
         writeLog('Scan successful finished')
-        notify(LS(30000), LS(30027))
+
