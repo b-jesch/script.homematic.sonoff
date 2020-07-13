@@ -31,6 +31,7 @@ class Sonoff(object):
     TOGGLE = [{'cmnd':'Power Toggle'}, {'cmnd':'Power2 Toggle'}, {'cmnd':'Power3 Toggle'}, {'cmnd':'Power4 Toggle'}]
     ON = [{'cmnd':'Power On'}, {'cmnd':'Power2 On'}, {'cmnd':'Power3 On'}, {'cmnd':'Power4 On'}]
     OFF = [{'cmnd':'Power Off'}, {'cmnd':'Power2 Off'}, {'cmnd':'Power3 Off'}, {'cmnd':'Power4 Off'}]
+    NAME = [{'cmnd':'Status'}, {'cmnd':'Status'}, {'cmnd':'Status'}, {'cmnd':'Status'}]
 
     @classmethod
     def select_ip(cls, device):
@@ -43,7 +44,9 @@ class Sonoff(object):
             req = urllib.urlopen('http://%s%s' % (device, self.SONOFF_CGI), urllib.urlencode(command)).read()
             response = req.splitlines()
             result = json.loads(response[0])
-            return result.get('POWER', result.get('POWER%s' % (channel), u'UNDEFINED')).upper()
+            return result.get('POWER',
+                              result.get('POWER%s' % channel,
+                                         result.get('Status', u'UNDEFINED')))
         except IOError as e:
             tools.writeLog('Error: %s' % str(e))
         except Exception as e:
@@ -57,6 +60,8 @@ if __name__ == '__main__':
     try:
         if sys.argv[2].upper() == 'STATUS':
             tools.writeLog(str(sd.send(sys.argv[1], sd.STATUS[int(sys.argv[3])])))
+        elif sys.argv[2].upper() == 'NAME':
+            tools.writeLog(str(sd.send(sys.argv[1], sd.NAME[int(sys.argv[3])])))
         elif sys.argv[2].upper() == 'TOGGLE':
             tools.writeLog(str(sd.send(sys.argv[1], sd.TOGGLE[int(sys.argv[3])])))
         elif sys.argv[2].upper == 'ON':
@@ -66,4 +71,4 @@ if __name__ == '__main__':
         else:
             tools.writeLog('unknown command')
     except IndexError:
-        tools.writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|TOGGLE|ON|OFF <channel (0-3)>"')
+        tools.writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|NAME|TOGGLE|ON|OFF <channel (0-3)>"')

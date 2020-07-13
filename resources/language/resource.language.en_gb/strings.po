@@ -29,7 +29,6 @@ msgctxt "Addon Disclaimer"
 msgid "Use at your own risk."
 msgstr ""
 
-
 msgctxt "#30000"
 msgid "Sonoff WLAN Switcher"
 msgstr ""
@@ -66,6 +65,10 @@ msgstr ""
 
 msgctxt "#30008"
 msgid "Switch 8"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Scan Network"
 msgstr ""
 
 msgctxt "#30010"
@@ -114,4 +117,64 @@ msgstr ""
 
 msgctxt "#30024"
 msgid "Device shouldn't switched"
+msgstr ""
+
+msgctxt "#30025"
+msgid "First configure the setup correctly and enter a valid network subnet address, e.g. 192.168.178.0"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Could not determine a valid Host IP in auto discovery mode. Please turn off auto discovery and enter an IP Prefix of your LAN"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Scan Results has been saved"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
+msgstr ""
+
+msgctxt "#30030"
+msgid "Automatic Discover Network"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Network Segment Prefix"
+msgstr ""
+
+msgctxt "#30032"
+msgid "IP Range starts from"
+msgstr ""
+
+msgctxt "#30033"
+msgid "IP Range ends at"
+msgstr ""
+
+msgctxt "#30034"
+msgid "Scan Port(s)"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Commands"
+msgstr ""
+
+msgctxt "#30036"
+msgid "Start Network Scan"
+msgstr ""
+
+msgctxt "#30037"
+msgid "Apply IP from Network Scanner List"
+msgstr ""
+
+msgctxt "#30040"
+msgid "Initialising Network Scanner..."
+msgstr ""
+
+msgctxt "#30041"
+msgid "Scanning Port {} in Address Range from {}.{} to {}.{}. This may take some Time depending from IP Range and the amount of scanned Ports.[CR][CR]"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Found Device at: {}.{} on Port {}: {}"
 msgstr ""
