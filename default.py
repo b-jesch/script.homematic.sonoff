@@ -81,7 +81,6 @@ if __name__ == '__main__':
                     liz.setArt({'icon': os.path.join(iconpath, 'network.png')})
                     liz.setProperty('name', net_devices[net_device].get('name', LS(30017)))
                     liz.setProperty('channels', ', '.join(net_devices[net_device].get('channels', [LS(30017)])))
-                    # liz.setProperty('channels', net_devices[net_device].get('channels', []))
                     menu.append(liz)
 
                 entry = xbmcgui.Dialog().select(LS(30037), menu, useDetails=True)
@@ -89,7 +88,6 @@ if __name__ == '__main__':
                     exit()
                 setAddonSetting('{}_ip'.format(sys.argv[2]), menu[entry].getLabel2())
                 setAddonSetting('{}_channels'.format(sys.argv[2]), len(menu[entry].getProperty('channels').split(',')) - 1)
-                # setAddonSetting('{}_channels'.format(sys.argv[2]), len(menu[entry].getProperty('channels')))
 
                 i = 0
                 for channel in menu[entry].getProperty('channels').split(','):
@@ -97,6 +95,7 @@ if __name__ == '__main__':
                     i += 1
             else:
                 writeLog('No device list found...')
+                dialogOK(LS(30000), LS(30029))
 
     except IndexError:
         _devlist = []

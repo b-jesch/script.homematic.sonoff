@@ -140,6 +140,10 @@ msgctxt "#30028"
 msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
 msgstr "Scan abgebrochen ode keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine (neue) Geräteliste wird nicht erzeugt."
 
+msgctxt "#30029"
+msgid "No Device List found. You have to scan Your Network at first."
+msgstr "Keine Netzwerk-Geräteliste gefunden. Bitte zuerst das Netzwerk scannen."
+
 msgctxt "#30030"
 msgid "Automatic Discover Network"
 msgstr "Netzwerk automatisch detektieren"
@@ -182,4 +186,4 @@ msgstr "Scanne Port {} im Bereich von {}.{} bis {}.{}. Das kann je nach IP-Berei
 
 msgctxt "#30042"
 msgid "Found Device at: {}.{} on Port {}: {}"
-msgstr "Gerät gefunden bei {}.{} Port {}: {}"
+msgstr "Gerät gefunden bei: {}.{} Port {}: {}"

@@ -139,6 +139,10 @@ msgctxt "#30028"
 msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
 msgstr ""
 
+msgctxt "#30029"
+msgid "No Device List found. You have to scan Your Network at first."
+msgstr ""
+
 msgctxt "#30030"
 msgid "Automatic Discover Network"
 msgstr ""
