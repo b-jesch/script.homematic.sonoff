@@ -134,11 +134,11 @@ msgstr "Im Auto Discovery Mode kann keine gültige Host-IP ermittelt werden. Bit
 
 msgctxt "#30027"
 msgid "Scan Results has been saved"
-msgstr "Scan Ergebnisse wurden gespeichert"
+msgstr "Scan-Liste gespeichert"
 
 msgctxt "#30028"
 msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
-msgstr "Scan abgebrochen ode keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine (neue) Geräteliste wird nicht erzeugt."
+msgstr "Scan abgebrochen oder keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine (neue) Geräteliste wird nicht erzeugt."
 
 msgctxt "#30029"
 msgid "No Device List found. You have to scan Your Network at first."

@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
 import json
-import platform
-import subprocess
-import os
 import re
 
 import xbmc
@@ -30,40 +27,9 @@ def writeLog(message, level=xbmc.LOGDEBUG):
                              ADDON.getAddonInfo('version'),
                              message), level)
 
+
 def notify(header, message, icon=xbmcgui.NOTIFICATION_INFO, dispTime=5000):
     xbmcgui.Dialog().notification(header, message, icon=icon, time=dispTime)
-
-
-def release():
-    item = {}
-    coll = {'platform': platform.system(), 'hostname': platform.node()}
-    if coll['platform'] == 'Linux':
-        with open('/etc/os-release', 'r') as _file:
-            for _line in _file:
-                parameter, value = _line.split('=')
-                item[parameter] = value.replace('"', '').strip()
-
-    coll.update({'osname': item.get('NAME', ''), 'osid': item.get('ID', ''), 'osversion': item.get('VERSION_ID', '')})
-    return coll
-
-
-def getProcessPID(process):
-    if not process: return False
-    OS = release()
-    if OS['platform'] == 'Linux':
-        _syscmd = subprocess.Popen(['pidof', process], stdout=subprocess.PIPE)
-        PID = _syscmd.stdout.read().strip()
-        return PID if PID > 0 else False
-    elif OS['platform'] == 'Windows':
-        _tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % os.path.basename(process)
-        _syscmd = subprocess.Popen(_tlcall, shell=True, stdout=subprocess.PIPE)
-        PID = _syscmd.communicate()[0].strip().split('\r\n')
-        if len(PID) > 1 and os.path.basename(process) in PID[-1]:
-            return PID[-1].split()[1]
-        else: return False
-    else:
-        writeLog('Running on {}, could not determine PID of {}'.format(OS, process))
-        return False
 
 
 def dialogOK(header, message):
