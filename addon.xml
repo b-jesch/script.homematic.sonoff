@@ -14,9 +14,9 @@
 All devices must flashed with Tasmota firmware! See https://github.com/arendst/Sonoff-Tasmota</description>
     <description lang="de">Schalte mit Kodi Deine Beleuchtung oder Deine Geräte mit den Sonoff WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Kodi-Fernbedienung.
 
-Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://github.com/arendst/Sonoff-Tasmota</description>
-    <disclaimer lang="en">Use at your own risk. It may be necessary to update the firmware of your Sonoff devices.</disclaimer>
-    <disclaimer lang="de">Benutzung auf eigene Gefahr. Es ist eventuell ein Firmware-Update Ihrer Sonoff-Geräte erforderlich.</disclaimer>
+Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://github.com/arendst/Tasmota</description>
+    <disclaimer lang="en">Use at your own risk. It may be necessary to update the firmware of the Sonoff devices.</disclaimer>
+    <disclaimer lang="de">Benutzung auf eigene Gefahr. Es ist eventuell ein Firmware-Update der Sonoff-Geräte erforderlich.</disclaimer>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
     <forum></forum>
     <website></website>
