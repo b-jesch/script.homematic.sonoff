@@ -149,8 +149,8 @@ msgid "Automatic Discover Network"
 msgstr "Netzwerk automatisch detektieren"
 
 msgctxt "#30031"
-msgid "Network Segment Prefix"
-msgstr "Netzwerk Segment Präfix"
+msgid "Network LAN Prefix"
+msgstr "Netzwerk LAN Präfix"
 
 msgctxt "#30032"
 msgid "IP Range starts from"
@@ -162,7 +162,7 @@ msgstr "IP-Bereich geht bis einschliesslich"
 
 msgctxt "#30034"
 msgid "Scan Port(s)"
-msgstr "Scan Port(s)"
+msgstr "Scanne Port(s)"
 
 msgctxt "#30035"
 msgid "Commands"

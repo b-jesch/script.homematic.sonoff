@@ -148,7 +148,7 @@ msgid "Automatic Discover Network"
 msgstr ""
 
 msgctxt "#30031"
-msgid "Network Segment Prefix"
+msgid "Network LAN Prefix"
 msgstr ""
 
 msgctxt "#30032"

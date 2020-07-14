@@ -3,6 +3,7 @@
 import sys
 import socket
 import io
+import os
 from resources.lib.tools import *
 from resources.lib.sonoff import Sonoff
 from resources.lib.scanner import Scanner
@@ -35,17 +36,22 @@ if __name__ == '__main__':
                     if interface in ('127.0.0.1', 'localhost'): continue
                     host = interface
                     break
+
                 if host is None:
                     dialogOK(LS(30000), LS(30026))
                     exit()
+
                 ip_subset = host.split('.')
+                ip_subset.pop()
+                setAddonSetting('netmask', '{}.0'.format('.'.join(ip_subset)))
             else:
                 ip_subset = getAddonSetting('netmask').split('.')
                 if getAddonSetting('netmask') == '0.0.0.0' or len(ip_subset) != 4:
                     dialogOK(LS(30000), LS(30025))
                     exit()
+                else:
+                    ip_subset.pop()
 
-            ip_subset.pop()
             mask = '.'.join(ip_subset)
             start = getAddonSetting('range_start', sType=NUM) - 1
             stop = getAddonSetting('range_stop', sType=NUM)
@@ -77,9 +83,9 @@ if __name__ == '__main__':
                 menu = list()
 
                 for net_device in net_devices:
-                    liz = xbmcgui.ListItem(label=net_device, label2=net_devices[net_device]['ip'])
+                    liz = xbmcgui.ListItem(label=net_devices[net_device].get('name', net_device),
+                                           label2=net_devices[net_device]['ip'])
                     liz.setArt({'icon': os.path.join(iconpath, 'network.png')})
-                    liz.setProperty('name', net_devices[net_device].get('name', LS(30017)))
                     liz.setProperty('channels', ', '.join(net_devices[net_device].get('channels', [LS(30017)])))
                     menu.append(liz)
 
@@ -87,7 +93,8 @@ if __name__ == '__main__':
                 if entry < 0:
                     exit()
                 setAddonSetting('{}_ip'.format(sys.argv[2]), menu[entry].getLabel2())
-                setAddonSetting('{}_channels'.format(sys.argv[2]), len(menu[entry].getProperty('channels').split(',')) - 1)
+                setAddonSetting('{}_channels'.format(sys.argv[2]),
+                                len(menu[entry].getProperty('channels').split(',')) - 1)
 
                 i = 0
                 for channel in menu[entry].getProperty('channels').split(','):

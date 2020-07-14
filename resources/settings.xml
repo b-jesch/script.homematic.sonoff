@@ -90,7 +90,7 @@
     </category>
     <category label="30009">
         <setting id="autodetect" type="bool" label="30030" default="true" />
-        <setting id="netmask" type="ipaddress" label="30031" visible="eq(-1,false)" default="0.0.0.0" />
+        <setting id="netmask" type="ipaddress" label="30031" enable="eq(-1,false)" default="0.0.0.0" />
         <setting id="range_start" type="number" label="30032" default="1" />
         <setting id="range_stop" type="number" label="30033" default="254" />
         <setting id="portlist" type="text" label="30034" default="80" />
