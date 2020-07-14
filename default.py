@@ -83,9 +83,17 @@ if __name__ == '__main__':
                 menu = list()
 
                 for net_device in net_devices:
-                    liz = xbmcgui.ListItem(label=net_devices[net_device].get('name', net_device),
-                                           label2=net_devices[net_device]['ip'])
-                    liz.setArt({'icon': os.path.join(iconpath, 'network.png')})
+
+                    if 'name' in net_devices[net_device]:
+                        icon = os.path.join(iconpath, 'network_td.png')
+                        label = '{} ({})'.format(net_device.encode('utf-8'),
+                                                 net_devices[net_device].get('name').encode('utf-8'))
+                    else:
+                        icon = os.path.join(iconpath, 'network.png')
+                        label = net_device.encode('utf-8')
+
+                    liz = xbmcgui.ListItem(label=label, label2=net_devices[net_device]['ip'])
+                    liz.setArt({'icon': icon})
                     liz.setProperty('channels', ', '.join(net_devices[net_device].get('channels', [LS(30017)])))
                     menu.append(liz)
 
