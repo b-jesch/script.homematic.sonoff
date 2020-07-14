@@ -23,7 +23,7 @@ class Scanner(object):
         for port in ports:
 
             progress = 0
-            msg_1 = LS(30041).format(port, segment, start + 1, segment, stop).encode('utf-8')
+            msg_1 = LS(30041).format(segment, start + 1, stop, port).encode('utf-8')
             msg_2 = ''
 
             writeLog("Scanning Port {} from {}.{} to {}.{}".format(port, segment, start + 1, segment, stop))

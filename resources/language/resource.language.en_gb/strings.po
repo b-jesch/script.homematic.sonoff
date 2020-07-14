@@ -180,7 +180,7 @@ msgid "Initialising Network Scanner..."
 msgstr ""
 
 msgctxt "#30041"
-msgid "Scanning Port {} in Address Range from {}.{} to {}.{}. This may take some Time depending from IP Range and the amount of scanned Ports.[CR][CR]"
+msgid "Scan {}.{}-{} on Port {}. Please pe patient.[CR][CR]"
 msgstr ""
 
 msgctxt "#30042"

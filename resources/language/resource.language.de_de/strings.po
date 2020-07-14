@@ -181,9 +181,9 @@ msgid "Initialising Network Scanner..."
 msgstr "Initialisiere Netzwerk-Scanner"
 
 msgctxt "#30041"
-msgid "Scanning Port {} in Address Range from {}.{} to {}.{}. This may take some Time depending from IP Range and the amount of scanned Ports.[CR][CR]"
-msgstr "Scanne Port {} im Bereich von {}.{} bis {}.{}. Das kann je nach IP-Bereich und Anzahl der zu scannenden Ports einige Zeit in Anspruch nehmen.[CR][CR]"
+msgid "Scan {}.{}-{} on Port {}. Please pe patient.[CR][CR]"
+msgstr "Scanne {}.{} - {} an Port {}. Bitte warten.[CR][CR]"
 
 msgctxt "#30042"
 msgid "Found Device at: {}.{} on Port {}: {}"
-msgstr "Gerät gefunden bei: {}.{} Port {}: {}"
+msgstr "Gerät gefunden bei: {}.{} an Port {}: {}"
