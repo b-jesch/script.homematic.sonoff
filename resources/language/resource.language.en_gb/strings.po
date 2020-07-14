@@ -1,5 +1,5 @@
 # XBMC Media Center language file
-# Addon Name: Homematic Sonoff WLAN Switch
+# Addon Name: Homematic Tasmota WLAN Switch
 # Addon id: script.homematic.sonoff
 # Addon version: 0.0.1
 # Addon Provider: Birger Jesch
@@ -18,20 +18,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgctxt "Addon Summary"
-msgid "Switch your devices with Sonoff WLAN modules and Kodi"
+msgid "Switch your devices with Tasmota WLAN modules and Kodi"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "Switch with Kodi your illuminations or devices with the Sonoff WLAN modules. Be a couch potato and control up to eight devices via remote."
+msgid "Switch with Kodi your illuminations or devices with the Tasmota WLAN modules. Be a couch potato and control up to eight devices via remote."
 msgstr ""
 
 msgctxt "Addon Disclaimer"
 msgid "Use at your own risk."
 msgstr ""
 
-
 msgctxt "#30000"
-msgid "Sonoff WLAN Switcher"
+msgid "Tasmota WLAN Switcher"
 msgstr ""
 
 #settings
@@ -68,6 +67,10 @@ msgctxt "#30008"
 msgid "Switch 8"
 msgstr ""
 
+msgctxt "#30009"
+msgid "Scan Network"
+msgstr ""
+
 msgctxt "#30010"
 msgid "enabled"
 msgstr ""
@@ -96,6 +99,10 @@ msgctxt "#30016"
 msgid "Number of channels"
 msgstr ""
 
+msgctxt "#30017"
+msgid "unknown"
+msgstr ""
+
 msgctxt "#30020"
 msgid "switch on"
 msgstr ""
@@ -114,4 +121,68 @@ msgstr ""
 
 msgctxt "#30024"
 msgid "Device shouldn't switched"
+msgstr ""
+
+msgctxt "#30025"
+msgid "First configure the setup correctly and enter a valid network subnet address, e.g. 192.168.178.0"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Could not determine a valid Host IP in auto discovery mode. Please turn off auto discovery and enter an IP Prefix of your LAN"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Scan Results has been saved"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
+msgstr ""
+
+msgctxt "#30029"
+msgid "No Device List found. You have to scan Your Network at first."
+msgstr ""
+
+msgctxt "#30030"
+msgid "Automatic Discover Network"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Network LAN Prefix"
+msgstr ""
+
+msgctxt "#30032"
+msgid "IP Range starts from"
+msgstr ""
+
+msgctxt "#30033"
+msgid "IP Range ends at"
+msgstr ""
+
+msgctxt "#30034"
+msgid "Scan Port(s)"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Commands"
+msgstr ""
+
+msgctxt "#30036"
+msgid "Start Network Scan"
+msgstr ""
+
+msgctxt "#30037"
+msgid "Apply IP from Network Scanner List"
+msgstr ""
+
+msgctxt "#30040"
+msgid "Initialising Network Scanner..."
+msgstr ""
+
+msgctxt "#30041"
+msgid "Scan {}.{}-{} on Port {}. Please pe patient.[CR][CR]"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Found Device: {}.{}:{} - {}"
 msgstr ""

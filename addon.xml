@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.homematic.sonoff" name="Sonoff WLAN Switcher" version="3.0.0" provider-name="Birger Jesch">
+<addon id="script.homematic.sonoff" name="Tasmota WLAN Switcher" version="3.0.1" provider-name="Birger Jesch">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />
     <import addon="xbmc.json" version="7.0.0" />
@@ -8,16 +8,16 @@
   <extension point="xbmc.python.script" library="default.py" />
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
-    <summary lang="en">Switch your devices with Sonoff WLAN modules and Kodi</summary>
-    <summary lang="de">Schalte Deine Geräte mit den Sonoff WLAN Modulen und Kodi</summary>
-    <description lang="en">Switch with Kodi your illuminations or devices with the Sonoff WLAN modules. Be a couch potato and control up to eight devices via kodi remote.
+     <summary lang="en">Switch your devices with Tasmota WLAN modules and Kodi</summary>
+    <summary lang="de">Schalte Deine Geräte mit Tasmota WLAN Modulen und Kodi</summary>
+    <description lang="en">Switch Your illuminations or devices with Kodi and Sonoff WLAN modules flashed with Tasmota. Be a couch potato and control up to eight devices via kodi remote.
 
-All devices must flashed with Tasmota firmware! See https://github.com/arendst/Sonoff-Tasmota</description>
-    <description lang="de">Schalte mit Kodi Deine Beleuchtung oder Deine Geräte mit den Sonoff WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Kodi-Fernbedienung.
+All devices must flashed with Tasmota firmware! See https://github.com/arendst/Tasmota</description>
+    <description lang="de">Schalte Deine Beleuchtung oder Deine Geräte mit Kodi und Sonoff WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Kodi-Fernbedienung.
 
-Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://github.com/arendst/Sonoff-Tasmota</description>
-    <disclaimer lang="en">Use at your own risk. It may be necessary to update the firmware of your Sonoff devices.</disclaimer>
-    <disclaimer lang="de">Benutzung auf eigene Gefahr. Es ist eventuell ein Firmware-Update Ihrer Sonoff-Geräte erforderlich.</disclaimer>
+Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://github.com/arendst/Tasmota</description>
+    <disclaimer lang="en">Use at your own risk. It may be necessary to update the firmware of the Sonoff devices.</disclaimer>
+    <disclaimer lang="de">Benutzung auf eigene Gefahr. Es ist eventuell ein Firmware-Update der Sonoff-Geräte erforderlich.</disclaimer>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
     <forum></forum>
     <website></website>
@@ -27,6 +27,16 @@ Alle Geräte müssen mit der Tasmota Firmware geflasht sein! Siehe auch https://
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>
     </assets>
-    <news>[B]3.0.0[/B][CR]- Migrate to Python 3 (Kodi Matrix)[CR][B]0.0.11[/B][CR]- Busy dialog implemented[CR][B]0.0.10[/B][CR]- changes in sonoff class module[CR][B]0.0.8[/B][CR]- smaller improvements[CR][B]0.0.7[/B][CR]- adjustments in Sonoff class module[CR][B]0.0.6:[/B][CR]- class module update[CR][B]0.0.5:[/B][CR]- JSON responses changed due Tasmota firmware updates[CR][B]0.0.4:[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented</news>
+    <news>
+[B]3.0.1[/B][CR]- Network Scanner implemented[CR]
+[B]3.0.0[/B][CR]- Migrate to Python 3 (Kodi Matrix)[CR]
+[B]0.0.11[/B][CR]- Busy dialog implemented[CR]
+[B]0.0.10[/B][CR]- changes in sonoff class module[CR]
+[B]0.0.8[/B][CR]- smaller improvements[CR]
+[B]0.0.7[/B][CR]- adjustments in Sonoff class module[CR]
+[B]0.0.6[/B][CR]- class module update[CR]
+[B]0.0.5[/B][CR]- JSON responses changed due Tasmota firmware updates[CR]
+[B]0.0.4[/B][CR]- Icons updated[CR]- Sonoff multiswitch implemented
+    </news>
   </extension>
 </addon>

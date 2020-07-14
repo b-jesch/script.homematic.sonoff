@@ -1,5 +1,5 @@
 # XBMC Media Center language file
-# Addon Name: Homematic Sonoff WLAN Switch
+# Addon Name: Homematic Tasmota WLAN Switch
 # Addon id: script.homematic.sonoff
 # Addon version: 0.0.1
 # Addon Provider: Birger Jesch
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgctxt "Addon Summary"
-msgid "Switch your devices with Sonoff WLAN modules and Kodi"
-msgstr "Schalte Deine Geräte mit den Sonoff WLAN Modulen und Kodi"
+msgid "Switch your devices with Tasmota WLAN modules and Kodi"
+msgstr "Schalte Deine Geräte mit den Tasmota WLAN Modulen und Kodi"
 
 msgctxt "Addon Description"
-msgid "Switch with Kodi your illuminations or devices with the Sonoff WLAN modules. Be a couch potato and control up to eight devices via remote."
-msgstr "Schalte mit Kodi Deine Beleuchtung oder Deine Geräte mit den Sonoff WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Fernbedienung."
+msgid "Switch with Kodi your illuminations or devices with the Tasmota WLAN modules. Be a couch potato and control up to eight devices via remote."
+msgstr "Schalte mit Kodi Deine Beleuchtung oder Deine Geräte mit den Tasmota WLAN Modulen. Sei eine Couchkartoffel und steuere bis zu acht Geräte mit der Fernbedienung."
 
 msgctxt "Addon Disclaimer"
 msgid "Use at your own risk."
@@ -31,8 +31,8 @@ msgstr "Benutzung auf eigene Gefahr"
 
 
 msgctxt "#30000"
-msgid "Sonoff WLAN Switcher"
-msgstr "Sonoff WLAN Switcher"
+msgid "Tasmota WLAN Switcher"
+msgstr "Tasmota WLAN Switcher"
 
 #settings
 
@@ -68,6 +68,10 @@ msgctxt "#30008"
 msgid "Switch 8"
 msgstr "Schalter 8"
 
+msgctxt "#30009"
+msgid "Scan Network"
+msgstr "Netzwerk scannen"
+
 msgctxt "#30010"
 msgid "enabled"
 msgstr "aktiv"
@@ -96,6 +100,10 @@ msgctxt "#30016"
 msgid "Number of channels"
 msgstr "Anzahl Kanäle"
 
+msgctxt "#30017"
+msgid "unknown"
+msgstr "unbekannt"
+
 msgctxt "#30020"
 msgid "switch on"
 msgstr "einschalten"
@@ -115,3 +123,67 @@ msgstr "undefiniert"
 msgctxt "#30024"
 msgid "Device shouldn't switched"
 msgstr "Gerät darf nicht geschalten werden"
+
+msgctxt "#30025"
+msgid "First configure the setup correctly and enter a valid network subnet address, e.g. 192.168.178.0"
+msgstr "Bitte im Setup eine korrekte und gültige Subnetz-Adresse angeben, z.B. 192.168.178.0"
+
+msgctxt "#30026"
+msgid "Could not determine a valid Host IP in auto discovery mode. Please turn off auto discovery and enter an IP Prefix of your LAN"
+msgstr "Im Auto Discovery Mode kann keine gültige Host-IP ermittelt werden. Bitte den Auto Discover Mode abschalten und einen IP Präfix des LANs verwenden"
+
+msgctxt "#30027"
+msgid "Scan Results has been saved"
+msgstr "Scan-Liste gespeichert"
+
+msgctxt "#30028"
+msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
+msgstr "Scan abgebrochen oder keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine (neue) Geräteliste wird nicht erzeugt."
+
+msgctxt "#30029"
+msgid "No Device List found. You have to scan Your Network at first."
+msgstr "Keine Netzwerk-Geräteliste gefunden. Bitte zuerst das Netzwerk scannen."
+
+msgctxt "#30030"
+msgid "Automatic Discover Network"
+msgstr "Netzwerk automatisch detektieren"
+
+msgctxt "#30031"
+msgid "Network LAN Prefix"
+msgstr "Netzwerk LAN Präfix"
+
+msgctxt "#30032"
+msgid "IP Range starts from"
+msgstr "IP-Bereich startet ab"
+
+msgctxt "#30033"
+msgid "IP Range ends at"
+msgstr "IP-Bereich geht bis einschliesslich"
+
+msgctxt "#30034"
+msgid "Scan Port(s)"
+msgstr "Scanne Port(s)"
+
+msgctxt "#30035"
+msgid "Commands"
+msgstr "Befehle"
+
+msgctxt "#30036"
+msgid "Start Network Scan"
+msgstr "Starte Netzwerk Scan"
+
+msgctxt "#30037"
+msgid "Apply IP from Network Scanner List"
+msgstr "Verwende IP aus Netzwerk Scannerliste"
+
+msgctxt "#30040"
+msgid "Initialising Network Scanner..."
+msgstr "Initialisiere Netzwerk-Scanner"
+
+msgctxt "#30041"
+msgid "Scan {}.{}-{} on Port {}. Please pe patient.[CR][CR]"
+msgstr "Scanne {}.{} - {} an Port {}. Bitte warten.[CR][CR]"
+
+msgctxt "#30042"
+msgid "Found Device: {}.{}:{} - {}"
+msgstr "Gerät gefunden: {}.{}:{} - {}"
