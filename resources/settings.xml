@@ -1,100 +1,1011 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<settings>
-    <category label="30001">
-        <setting id="1_enabled" type="bool" label="30010" default="true" />
-        <setting id="1_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,1)" enable="eq(-2,true)" />
-        <setting id="1_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="1_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="1_name_0" type="text" label="30013" default="Sonoff Switch #1, channel #1" enable="eq(-5,true)" />
-        <setting id="1_name_1" type="text" label="30013" default="Sonoff Switch #1, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="1_name_2" type="text" label="30013" default="Sonoff Switch #1, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="1_name_3" type="text" label="30013" default="Sonoff Switch #1, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30002">
-        <setting id="2_enabled" type="bool" label="30010" default="false" />
-        <setting id="2_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,2)" enable="eq(-2,true)" />
-        <setting id="2_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="2_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="2_name_0" type="text" label="30013" default="Sonoff Switch #2, channel #1" enable="eq(-5,true)" />
-        <setting id="2_name_1" type="text" label="30013" default="Sonoff Switch #2, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="2_name_2" type="text" label="30013" default="Sonoff Switch #2, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="2_name_3" type="text" label="30013" default="Sonoff Switch #2, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30003">
-        <setting id="3_enabled" type="bool" label="30010" default="false" />
-        <setting id="3_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,3)" enable="eq(-2,true)" />
-        <setting id="3_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="3_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="3_name_0" type="text" label="30013" default="Sonoff Switch #3, channel #1" enable="eq(-5,true)" />
-        <setting id="3_name_1" type="text" label="30013" default="Sonoff Switch #3, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="3_name_2" type="text" label="30013" default="Sonoff Switch #3, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="3_name_3" type="text" label="30013" default="Sonoff Switch #3, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30004">
-        <setting id="4_enabled" type="bool" label="30010" default="false" />
-        <setting id="4_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,4)" enable="eq(-2,true)" />
-        <setting id="4_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="4_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="4_name_0" type="text" label="30013" default="Sonoff Switch #4, channel #1" enable="eq(-5,true)" />
-        <setting id="4_name_1" type="text" label="30013" default="Sonoff Switch #4, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="4_name_2" type="text" label="30013" default="Sonoff Switch #4, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="4_name_3" type="text" label="30013" default="Sonoff Switch #4, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30005">
-        <setting id="5_enabled" type="bool" label="30010" default="false" />
-        <setting id="5_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,5)" enable="eq(-2,true)" />
-        <setting id="5_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="5_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="5_name_0" type="text" label="30013" default="Sonoff Switch #5, channel #1" enable="eq(-5,true)" />
-        <setting id="5_name_1" type="text" label="30013" default="Sonoff Switch #5, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="5_name_2" type="text" label="30013" default="Sonoff Switch #5, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="5_name_3" type="text" label="30013" default="Sonoff Switch #5, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30006">
-        <setting id="6_enabled" type="bool" label="30010" default="false" />
-        <setting id="6_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,6)" enable="eq(-2,true)" />
-        <setting id="6_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="6_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="6_name_0" type="text" label="30013" default="Sonoff Switch #6, channel #1" enable="eq(-5,true)" />
-        <setting id="6_name_1" type="text" label="30013" default="Sonoff Switch #6, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="6_name_2" type="text" label="30013" default="Sonoff Switch #6, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="6_name_3" type="text" label="30013" default="Sonoff Switch #6, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30007">
-        <setting id="7_enabled" type="bool" label="30010" default="false" />
-        <setting id="7_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,7)" enable="eq(-2,true)" />
-        <setting id="7_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="7_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="7_name_0" type="text" label="30013" default="Sonoff Switch #7, channel #1" enable="eq(-5,true)" />
-        <setting id="7_name_1" type="text" label="30013" default="Sonoff Switch #7, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="7_name_2" type="text" label="30013" default="Sonoff Switch #7, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="7_name_3" type="text" label="30013" default="Sonoff Switch #7, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30008">
-        <setting id="8_enabled" type="bool" label="30010" default="false" />
-        <setting id="8_switchable" type="bool" label="30011" default="true" enable="eq(-1,true)" />
-        <setting label="30037" type="action" action="RunAddon(script.homematic.sonoff,apply,8)" enable="eq(-2,true)" />
-        <setting id="8_ip" type="ipaddress" label="30012" default="0.0.0.0" enable="eq(-3,true)" />
-        <setting id="8_channels" type="enum" label="30016" values="1|2|3|4" default="0" enable="eq(-4,true)" />
-        <setting id="8_name_0" type="text" label="30013" default="Sonoff Switch #8, channel #1" enable="eq(-5,true)" />
-        <setting id="8_name_1" type="text" label="30013" default="Sonoff Switch #8, channel #2" enable="eq(-6,true)" visible="gt(-2,0)" />
-        <setting id="8_name_2" type="text" label="30013" default="Sonoff Switch #8, channel #3" enable="eq(-7,true)" visible="gt(-3,1)" />
-        <setting id="8_name_3" type="text" label="30013" default="Sonoff Switch #8, channel #4" enable="eq(-8,true)" visible="gt(-4,2)" />
-    </category>
-    <category label="30009">
-        <setting id="autodetect" type="bool" label="30030" default="true" />
-        <setting id="netmask" type="ipaddress" label="30031" enable="eq(-1,false)" default="0.0.0.0" />
-        <setting id="range_start" type="number" label="30032" default="1" />
-        <setting id="range_stop" type="number" label="30033" default="254" />
-        <setting id="portlist" type="text" label="30034" default="80" />
-        <setting label="30035" type="lsep" />
-        <setting label="30036" type="action" action="RunAddon(script.homematic.sonoff,scan)" option="close" />
-    </category>
+<?xml version="1.0" ?>
+<settings version="1">
+	<section id="script.homematic.sonoff">
+		<category help="" id="switch_1" label="30001">
+			<group id="1">
+				<setting help="" id="1_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="1_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="1_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,1)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="1_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="1_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="1_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #1, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="1_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #1, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="1_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="1_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #1, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="1_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="1_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #1, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="1_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="1_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_2" label="30002">
+			<group id="1">
+				<setting help="" id="2_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="2_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="2_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,2)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="2_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="2_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="2_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #2, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="2_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #2, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="2_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="2_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #2, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="2_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="2_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #2, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="2_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="2_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_3" label="30003">
+			<group id="1">
+				<setting help="" id="3_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="3_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="3_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,3)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="3_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="3_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="3_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #3, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="3_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #3, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="3_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="3_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #3, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="3_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="3_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #3, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="3_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="3_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_4" label="30004">
+			<group id="1">
+				<setting help="" id="4_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="4_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="4_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,4)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="4_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="4_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="4_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #4, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="4_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #4, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="4_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="4_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #4, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="4_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="4_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #4, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="4_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="4_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_5" label="30005">
+			<group id="1">
+				<setting help="" id="5_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="5_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="5_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,5)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="5_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="5_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="5_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #5, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="5_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #5, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="5_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="5_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #5, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="5_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="5_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #5, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="5_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="5_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_6" label="30006">
+			<group id="1">
+				<setting help="" id="6_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="6_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="6_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,6)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="6_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="6_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="6_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #6, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="6_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #6, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="6_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="6_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #6, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="6_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="6_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #6, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="6_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="6_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_7" label="30007">
+			<group id="1">
+				<setting help="" id="7_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="7_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="7_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,7)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="7_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="7_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="7_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #7, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="7_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #7, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="7_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="7_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #7, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="7_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="7_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #7, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="7_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="7_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="switch_8" label="30008">
+			<group id="1">
+				<setting help="" id="8_enabled" label="30010" type="boolean">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="8_switchable" label="30011" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="8_runscript" label="30037" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,apply,8)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="action" type="button"/>
+				</setting>
+				<setting help="" id="8_ip" label="30012" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30012</heading>
+					</control>
+				</setting>
+				<setting help="" id="8_channels" label="30016" type="integer">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option label="30051">0</option>
+							<option label="30052">1</option>
+							<option label="30053">2</option>
+							<option label="30054">3</option>
+						</options>
+					</constraints>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="spinner"/>
+				</setting>
+				<setting help="" id="8_name_0" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #8, channel #1</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="8_name_1" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #8, channel #2</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="8_channels">0</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="8_name_2" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #8, channel #3</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="8_channels">1</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+				<setting help="" id="8_name_3" label="30013" type="string">
+					<level>0</level>
+					<default>Sonoff Switch #8, channel #4</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="8_enabled">true</condition>
+						</dependency>
+						<dependency type="visible">
+							<condition operator="gt" setting="8_channels">2</condition>
+						</dependency>
+					</dependencies>
+					<control format="string" type="edit">
+						<heading>30013</heading>
+					</control>
+				</setting>
+			</group>
+		</category>
+		<category help="" id="netzwerk scannen" label="30009">
+			<group id="1">
+				<setting help="" id="autodetect" label="30030" type="boolean">
+					<level>0</level>
+					<default>true</default>
+					<control type="toggle"/>
+				</setting>
+				<setting help="" id="netmask" label="30031" type="string">
+					<level>0</level>
+					<default>0.0.0.0</default>
+					<dependencies>
+						<dependency type="enable">
+							<condition operator="is" setting="autodetect">false</condition>
+						</dependency>
+					</dependencies>
+					<control format="ip" type="edit">
+						<heading>30031</heading>
+					</control>
+				</setting>
+				<setting help="" id="range_start" label="30032" type="integer">
+					<level>0</level>
+					<default>1</default>
+					<control format="integer" type="edit">
+						<heading>30032</heading>
+					</control>
+				</setting>
+				<setting help="" id="range_stop" label="30033" type="integer">
+					<level>0</level>
+					<default>254</default>
+					<control format="integer" type="edit">
+						<heading>30033</heading>
+					</control>
+				</setting>
+				<setting help="" id="portlist" label="30034" type="string">
+					<level>0</level>
+					<default>80</default>
+					<control format="string" type="edit">
+						<heading>30034</heading>
+					</control>
+				</setting>
+			</group>
+			<group id="2" label="30035">
+				<setting help="" id="scan" label="30036" type="action">
+					<level>0</level>
+					<data>RunAddon(script.homematic.sonoff,scan)</data>
+					<constraints>
+						<allowempty>true</allowempty>
+					</constraints>
+					<control format="action" type="button">
+						<close>true</close>
+					</control>
+				</setting>
+			</group>
+		</category>
+	</section>
 </settings>

@@ -186,3 +186,21 @@ msgstr ""
 msgctxt "#30042"
 msgid "Found Device: {}.{}:{} - {}"
 msgstr ""
+
+# Labels
+
+msgctxt "#30051"
+msgid "1"
+msgstr ""
+
+msgctxt "#30022"
+msgid "2"
+msgstr ""
+
+msgctxt "#30053"
+msgid "3"
+msgstr ""
+
+msgctxt "#30054"
+msgid "4"
+msgstr ""

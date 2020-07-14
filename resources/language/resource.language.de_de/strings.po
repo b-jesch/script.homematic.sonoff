@@ -187,3 +187,21 @@ msgstr "Scanne {}.{} - {} an Port {}. Bitte warten.[CR][CR]"
 msgctxt "#30042"
 msgid "Found Device: {}.{}:{} - {}"
 msgstr "Gerät gefunden: {}.{}:{} - {}"
+
+# Labels
+
+msgctxt "#30051"
+msgid "1"
+msgstr "1"
+
+msgctxt "#30052"
+msgid "2"
+msgstr "2"
+
+msgctxt "#30053"
+msgid "3"
+msgstr "3"
+
+msgctxt "#30054"
+msgid "4"
+msgstr "4"
