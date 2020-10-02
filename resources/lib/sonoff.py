@@ -26,7 +26,7 @@ class Sonoff(object):
                                params=command, timeout=timeout)
             req.raise_for_status()
             result = req.json()
-            return result.get('POWER', result.get('POWER%s' % channel, result.get('Status', u'UNDEFINED')))
+            return result.get('POWER', result.get('POWER%s' % channel, result.get('Status', 'UNDEFINED')))
         except (requests.ConnectionError, requests.HTTPError, requests.Timeout) as e:
             writeLog('Error: %s' % e.args, xbmc.LOGERROR)
         except ValueError as e:
@@ -34,7 +34,7 @@ class Sonoff(object):
         except Exception as e:
             writeLog('general Exception: %s' % e.args, xbmc.LOGERROR)
 
-        return u'UNDEFINED'
+        return 'UNDEFINED'
 
 
 if __name__ == '__main__':
