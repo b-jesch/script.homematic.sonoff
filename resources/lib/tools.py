@@ -1,21 +1,17 @@
 #!/usr/bin/python
 
-import json
-import platform
-import subprocess
-import os
 import re
-
 import xbmc
 import xbmcgui
 import xbmcaddon
+import xbmcvfs
 
 from contextlib import contextmanager
 
 ADDON = xbmcaddon.Addon(id='script.homematic.sonoff')
 ADDON_NAME = xbmcaddon.Addon().getAddonInfo('name')
-PATH = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('path'))
-PROFILE = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('profile'))
+PATH = xbmcvfs.translatePath(xbmcaddon.Addon().getAddonInfo('path'))
+PROFILE = xbmcvfs.translatePath(xbmcaddon.Addon().getAddonInfo('profile'))
 LS = xbmcaddon.Addon().getLocalizedString
 
 # Constants
@@ -36,17 +32,6 @@ def notify(header, message, icon=xbmcgui.NOTIFICATION_INFO, dispTime=5000):
 
 def dialogOK(header, message):
     xbmcgui.Dialog().ok(header, message)
-
-
-def jsonrpc(query):
-    querystring = {"jsonrpc": "2.0", "id": 1}
-    querystring.update(query)
-    try:
-        response = json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
-        if 'result' in response: return response['result']
-    except TypeError as e:
-        writeLog('Error executing JSON RPC: %s' % (e.args), xbmc.LOGFATAL)
-    return None
 
 
 def strToBool(par):

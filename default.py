@@ -2,6 +2,8 @@
 
 import sys
 import socket
+import os
+import json
 from resources.lib.tools import *
 from resources.lib.sonoff import Sonoff
 from resources.lib.scanner import Scanner
