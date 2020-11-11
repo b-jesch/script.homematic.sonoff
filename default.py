@@ -154,7 +154,7 @@ if __name__ == '__main__':
                     writeLog('{} ({}) switched to {}'.format(_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip'), res))
                 else:
                     writeLog('{} ({}) is not switchable'.format(_devlist[_idx].getProperty('name'), _devlist[_idx].getProperty('ip')))
-                    notify(LS(30000), LS(30014) % (_devlist[_idx].getProperty('name')), icon=xbmcgui.NOTIFICATION_WARNING)
+                    notify(LS(30000), LS(30014) % (_devlist[_idx].getProperty('name').decode('utf-8')), icon=xbmcgui.NOTIFICATION_WARNING)
         else:
             writeLog('no switchable devices found')
             notify(LS(30000), LS(30015), icon=xbmcgui.NOTIFICATION_WARNING)
