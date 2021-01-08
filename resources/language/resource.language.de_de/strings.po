@@ -129,16 +129,16 @@ msgid "First configure the setup correctly and enter a valid network subnet addr
 msgstr "Bitte im Setup eine korrekte und gültige Subnetz-Adresse angeben, z.B. 192.168.178.0"
 
 msgctxt "#30026"
-msgid "Could not determine a valid Host IP in auto discovery mode. Please turn off auto discovery and enter an IP Prefix of your LAN"
-msgstr "Im Auto Discovery Mode kann keine gültige Host-IP ermittelt werden. Bitte den Auto Discover Mode abschalten und einen IP Präfix des LANs verwenden"
+msgid "Could not determine a valid Host IP in auto detection mode. Please turn off auto detection and enter an IP Prefix of your LAN"
+msgstr "Im Auto Detetction Modus konnte keine gültige Host-IP ermittelt werden. Bitte den Auto Detection Modus abschalten und einen IP Präfix des LANs verwenden"
 
 msgctxt "#30027"
 msgid "Scan Results has been saved"
 msgstr "Scan-Liste gespeichert"
 
 msgctxt "#30028"
-msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A (new) Device List wouldn't be created."
-msgstr "Scan abgebrochen oder keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine (neue) Geräteliste wird nicht erzeugt."
+msgid "Scan aborted or no Devices found. Previous Scan Results will be unchanged. A new Device List wouldn't be created."
+msgstr "Scan abgebrochen oder keine Geräte gefunden. Vorherige Scan-Ergebnisse bleiben erhalten. Eine neue Geräteliste wird nicht erzeugt."
 
 msgctxt "#30029"
 msgid "No Device List found. You have to scan Your Network at first."
