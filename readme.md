@@ -34,6 +34,9 @@ It's possible to use the sonoff.py class module separatly from this addon as a w
  
 Make shure the sonoff.py is executable. Copy the sonoff.py to a place of your needs. You also can use the class module directly in python scripts. Import the class module and use it as follows:
     
+    import sys
+    # append path to sonoff module
+    sys.path.append('<path_to_your_kodi_installation>/addons/script.homematic.sonoff/resources/lib')
     from sonoff.py import *
     Sonoff().send('192.168.1.100', Sonoff().TOGGLE[0])
     
