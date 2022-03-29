@@ -20,6 +20,7 @@ STRING = 0
 BOOL = 1
 NUM = 2
 
+
 def writeLog(message, level=xbmc.LOGDEBUG):
     xbmc.log('[%s %s] %s' % (xbmcaddon.Addon().getAddonInfo('id'),
                              xbmcaddon.Addon().getAddonInfo('version'),

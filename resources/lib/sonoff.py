@@ -3,7 +3,10 @@
 
 import requests
 import sys
-from .tools import *
+import re
+import xbmc
+# from .tools import *
+
 
 class Sonoff(object):
 
@@ -28,11 +31,11 @@ class Sonoff(object):
             result = req.json()
             return result.get('POWER', result.get('POWER%s' % channel, result.get('Status', 'UNDEFINED')))
         except (requests.ConnectionError, requests.HTTPError, requests.Timeout) as e:
-            writeLog('Error: %s' % e.args, xbmc.LOGERROR)
+            xbmc.log('Error: %s' % e.args, xbmc.LOGERROR)
         except ValueError as e:
-            writeLog('JSON Response expected, got others: %s' % str(e), xbmc.LOGERROR)
+            xbmc.log('JSON Response expected, got others: %s' % str(e), xbmc.LOGERROR)
         except Exception as e:
-            writeLog('general Exception: %s' % e.args, xbmc.LOGERROR)
+            xbmc.log('general Exception: %s' % e.args, xbmc.LOGERROR)
 
         return 'UNDEFINED'
 
@@ -41,16 +44,16 @@ if __name__ == '__main__':
     sd = Sonoff()
     try:
         if sys.argv[2].upper() == 'STATUS':
-            writeLog(str(sd.send(sys.argv[1], sd.STATUS[int(sys.argv[3])])))
+            xbmc.log(str(sd.send(sys.argv[1], sd.STATUS[int(sys.argv[3])])))
         elif sys.argv[2].upper() == 'NAME':
-            writeLog(str(sd.send(sys.argv[1], sd.NAME[int(sys.argv[3])])))
+            xbmc.log(str(sd.send(sys.argv[1], sd.NAME[int(sys.argv[3])])))
         elif sys.argv[2].upper() == 'TOGGLE':
-            writeLog(str(sd.send(sys.argv[1], sd.TOGGLE[int(sys.argv[3])])))
+            xbmc.log(str(sd.send(sys.argv[1], sd.TOGGLE[int(sys.argv[3])])))
         elif sys.argv[2].upper == 'ON':
-            writeLog(str(sd.send(sys.argv[1], sd.ON[int(sys.argv[3])])))
+            xbmc.log(str(sd.send(sys.argv[1], sd.ON[int(sys.argv[3])])))
         elif sys.argv[2].upper == 'OFF':
-            writeLog(str(sd.send(sys.argv[1], sd.OFF[int(sys.argv[3])])))
+            xbmc.log(str(sd.send(sys.argv[1], sd.OFF[int(sys.argv[3])])))
         else:
-            writeLog('unknown command')
+            xbmc.log('unknown command')
     except IndexError:
-        writeLog('not all arguments passed, use "sonoff.py <IP> STATUS|NAME|TOGGLE|ON|OFF <channel (0-3)>"')
+        xbmc.log('not all arguments passed, use "sonoff.py <IP> STATUS|NAME|TOGGLE|ON|OFF <channel (0-3)>"')
