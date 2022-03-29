@@ -37,7 +37,7 @@ Make shure the sonoff.py is executable. Copy the sonoff.py to a place of your ne
     import sys
     # append path to sonoff module
     sys.path.append('<path_to_your_kodi_installation>/addons/script.homematic.sonoff/resources/lib')
-    from sonoff.py import *
+    from sonoff import *
     Sonoff().send('192.168.1.100', Sonoff().TOGGLE[0])
     
 where the 192.168.1.100 is the IP of your device and TOGGLE[0] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel - 1 (0-3). 
