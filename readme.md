@@ -40,5 +40,5 @@ Make shure the sonoff.py is executable. Copy the sonoff.py to a place of your ne
     from sonoff import *
     Sonoff().send('192.168.1.100', Sonoff().TOGGLE[0])
     
-where the 192.168.1.100 is the IP of your device and TOGGLE[0] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel - 1 (0-3). 
+where the 192.168.1.100 is the IP of your device and TOGGLE[0] the first channel that will be toggled. It's also possible to use the commands ON[x], OFF[x], STATUS[x] where x is the number of your device channel - 1 (0-3). Note that the Sonoff module needs the requests module as a dependency so you have to announce this e.g. in addon.xml.
     
