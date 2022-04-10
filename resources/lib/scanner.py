@@ -35,7 +35,7 @@ class Scanner(object):
                     try:
                         _dev = socket.gethostbyaddr('{}.{}'.format(segment, i))[0]
                     except socket.herror:
-                        _dev = '<unknown>'
+                        _dev = LS(30017)
 
                     msg_2 = LS(30042).format(segment, i, port, _dev)
                     writeLog("Device found at: {}.{}:{} {}".format(segment, i, port, _dev))
