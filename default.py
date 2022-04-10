@@ -71,7 +71,7 @@ if __name__ == '__main__':
                         scanner.net_devices[net_device].update({'name': props.get('DeviceName', 'unknown')})
                         scanner.net_devices[net_device].update({'channels': props.get('FriendlyName', [])})
 
-                with open(scannerfile, 'w') as sf:
+                with open(scannerfile, 'w', encoding='utf-8') as sf:
                     content = json.dumps(scanner.net_devices, ensure_ascii=False, indent=4)
                     sf.write(content)
 
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
         elif sys.argv[1].upper() == 'APPLY':
             if os.path.isfile(scannerfile):
-                with open(scannerfile, 'r') as sf:
+                with open(scannerfile, 'r', encoding='utf-8') as sf:
                     net_devices = json.load(sf)
                     writeLog('Load {} entries from net device list'.format(len(net_devices)))
                 menu = list()

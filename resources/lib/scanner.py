@@ -31,7 +31,12 @@ class Scanner(object):
                 res = self.connect("{}.{}".format(segment, i), port)
                 progress += steps
                 if res:
-                    _dev = socket.gethostbyaddr('{}.{}'.format(segment, i))[0]
+
+                    try:
+                        _dev = socket.gethostbyaddr('{}.{}'.format(segment, i))[0]
+                    except socket.herror:
+                        _dev = '<unknown>'
+
                     msg_2 = LS(30042).format(segment, i, port, _dev)
                     writeLog("Device found at: {}.{}:{} {}".format(segment, i, port, _dev))
                     self.net_devices.update({_dev: {'ip': '{}.{}'.format(segment, i)}})

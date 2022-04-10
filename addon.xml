@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.homematic.sonoff" name="Tasmota WLAN Switcher" version="3.0.4+matrix" provider-name="Birger Jesch">
+<addon id="script.homematic.sonoff" name="Tasmota WLAN Switcher" version="3.0.5+matrix" provider-name="Birger Jesch">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />
     <import addon="xbmc.json" version="7.0.0" />
@@ -28,6 +28,7 @@ All devices must flashed with Tasmota firmware! See https://github.com/arendst/T
       <fanart>resources/fanart.jpg</fanart>
     </assets>
     <news>
+[B]3.0.5+matrix[/B][CR]- Fixed network name resolution, UnicodeDecode in File I/O
 [B]3.0.3+matrix[/B][CR]- Arrangement of item categories in setup changed[CR]
 [B]3.0.2+matrix[/B][CR]- some Modifications[CR]
 [B]3.0.1[/B][CR]- Network Scanner implemented[CR]
